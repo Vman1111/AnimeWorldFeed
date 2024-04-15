@@ -74,8 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				FA446F6D2BCD3EB900E85C70 /* AnimeFeed.h */,
-				FA446F822BCD40D800E85C70 /* AnimeItem.swift */,
-				FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */,
+				FA446F862BCD53DF00E85C70 /* Anime Feed Feature */,
 			);
 			path = AnimeFeed;
 			sourceTree = "<group>";
@@ -86,6 +85,15 @@
 				FA446F772BCD3EB900E85C70 /* AnimeFeedTests.swift */,
 			);
 			path = AnimeFeedTests;
+			sourceTree = "<group>";
+		};
+		FA446F862BCD53DF00E85C70 /* Anime Feed Feature */ = {
+			isa = PBXGroup;
+			children = (
+				FA446F822BCD40D800E85C70 /* AnimeItem.swift */,
+				FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */,
+			);
+			path = "Anime Feed Feature";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
