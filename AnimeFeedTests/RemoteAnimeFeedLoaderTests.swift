@@ -40,10 +40,10 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         
         client.error = NSError(domain: "Test", code: 0)
         
-        var capturedError: RemoteAnimeFeedLoader.Error?
-        sut.load { error in capturedError = error }
+        var capturedError = [RemoteAnimeFeedLoader.Error]()
+        sut.load { capturedError.append($0) }
         
-        XCTAssertEqual(capturedError, .connectivity)
+        XCTAssertEqual(capturedError, [.connectivity])
     }
     
     // MARK: Helpers
