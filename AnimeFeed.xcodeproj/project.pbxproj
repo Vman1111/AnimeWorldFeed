@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA30BAE52BCD855400FBF268 /* RemoteAnimeFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30BAE42BCD855400FBF268 /* RemoteAnimeFeedLoader.swift */; };
+		FA30BAE72BCD856600FBF268 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30BAE62BCD856600FBF268 /* HTTPClient.swift */; };
 		FA446F732BCD3EB900E85C70 /* AnimeFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA446F6A2BCD3EB900E85C70 /* AnimeFeed.framework */; };
 		FA446F792BCD3EB900E85C70 /* AnimeFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = FA446F6D2BCD3EB900E85C70 /* AnimeFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA446F832BCD40D800E85C70 /* AnimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F822BCD40D800E85C70 /* AnimeItem.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA30BAE42BCD855400FBF268 /* RemoteAnimeFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAnimeFeedLoader.swift; sourceTree = "<group>"; };
+		FA30BAE62BCD856600FBF268 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		FA446F6A2BCD3EB900E85C70 /* AnimeFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AnimeFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA446F6D2BCD3EB900E85C70 /* AnimeFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimeFeed.h; sourceTree = "<group>"; };
 		FA446F722BCD3EB900E85C70 /* AnimeFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA30BAE32BCD853300FBF268 /* AnimeFeedAPI */ = {
+			isa = PBXGroup;
+			children = (
+				FA30BAE42BCD855400FBF268 /* RemoteAnimeFeedLoader.swift */,
+				FA30BAE62BCD856600FBF268 /* HTTPClient.swift */,
+			);
+			path = AnimeFeedAPI;
+			sourceTree = "<group>";
+		};
 		FA446F602BCD3EB900E85C70 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +88,7 @@
 			children = (
 				FA446F6D2BCD3EB900E85C70 /* AnimeFeed.h */,
 				FA446F862BCD53DF00E85C70 /* Anime Feed Feature */,
+				FA30BAE32BCD853300FBF268 /* AnimeFeedAPI */,
 			);
 			path = AnimeFeed;
 			sourceTree = "<group>";
@@ -208,6 +222,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA446F832BCD40D800E85C70 /* AnimeItem.swift in Sources */,
+				FA30BAE52BCD855400FBF268 /* RemoteAnimeFeedLoader.swift in Sources */,
+				FA30BAE72BCD856600FBF268 /* HTTPClient.swift in Sources */,
 				FA446F852BCD4BFC00E85C70 /* AnimeFeedLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
