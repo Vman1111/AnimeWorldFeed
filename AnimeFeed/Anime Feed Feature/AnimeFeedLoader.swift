@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias Result = Swift.Result<[AnimeItem], Error>
-
 protocol AnimeFeedLoader {
-    func load(completion: @escaping (Result) -> Void)
+    func load(completion: @escaping (Error?, HTTPURLResponse?) -> Void)
 }
