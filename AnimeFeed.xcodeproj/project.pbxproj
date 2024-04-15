@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FA446F732BCD3EB900E85C70 /* AnimeFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA446F6A2BCD3EB900E85C70 /* AnimeFeed.framework */; };
-		FA446F782BCD3EB900E85C70 /* AnimeFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F772BCD3EB900E85C70 /* AnimeFeedTests.swift */; };
 		FA446F792BCD3EB900E85C70 /* AnimeFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = FA446F6D2BCD3EB900E85C70 /* AnimeFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA446F832BCD40D800E85C70 /* AnimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F822BCD40D800E85C70 /* AnimeItem.swift */; };
 		FA446F852BCD4BFC00E85C70 /* AnimeFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */; };
+		FA446F882BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +28,9 @@
 		FA446F6A2BCD3EB900E85C70 /* AnimeFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AnimeFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA446F6D2BCD3EB900E85C70 /* AnimeFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimeFeed.h; sourceTree = "<group>"; };
 		FA446F722BCD3EB900E85C70 /* AnimeFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA446F772BCD3EB900E85C70 /* AnimeFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeFeedTests.swift; sourceTree = "<group>"; };
 		FA446F822BCD40D800E85C70 /* AnimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeItem.swift; sourceTree = "<group>"; };
 		FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeFeedLoader.swift; sourceTree = "<group>"; };
+		FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAnimeFeedLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 		FA446F762BCD3EB900E85C70 /* AnimeFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA446F772BCD3EB900E85C70 /* AnimeFeedTests.swift */,
+				FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */,
 			);
 			path = AnimeFeedTests;
 			sourceTree = "<group>";
@@ -162,6 +162,7 @@
 					};
 					FA446F712BCD3EB900E85C70 = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 					};
 				};
 			};
@@ -215,7 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA446F782BCD3EB900E85C70 /* AnimeFeedTests.swift in Sources */,
+				FA446F882BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YK85C8KC5D;
@@ -435,6 +437,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sapranavicius.vytautas.com.AnimeFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -443,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YK85C8KC5D;
