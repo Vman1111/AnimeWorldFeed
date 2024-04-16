@@ -72,12 +72,12 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
     }
     
     func expect(_ sut: RemoteAnimeFeedLoader, toCompleteWithError error: RemoteAnimeFeedLoader.Error, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
-        var capturedError = [RemoteAnimeFeedLoader.Error]()
-        sut.load { capturedError.append($0) }
+        var capturedResults = [RemoteAnimeFeedLoader.Result]()
+        sut.load { capturedResults.append($0) }
         
         action()
         
-        XCTAssertEqual(capturedError, [error], file: file, line: line)
+        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
     }
     
     private class HTTPClientSpy: HTTPClient {

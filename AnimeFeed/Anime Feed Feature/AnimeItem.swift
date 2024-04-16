@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AnimeItem {
+public struct AnimeItem: Equatable {
     let id: Int64
     let url: String
     let images: Images
@@ -24,18 +24,18 @@ struct AnimeItem {
     let background: String
 }
 
-struct Images: Decodable {
+struct Images: Decodable, Equatable {
     let jpg: JPGImages
     let webp: WEBPImages
 }
 
-struct JPGImages: Decodable {
+struct JPGImages: Decodable, Equatable {
     let image_url: String
     let small_image_url: String
     let large_image_url: String
 }
 
-struct WEBPImages: Decodable {
+struct WEBPImages: Decodable, Equatable {
     let image_url: String
     let small_image_url: String
     let large_image_url: String

@@ -11,26 +11,25 @@ public final class RemoteAnimeFeedLoader {
     let url: URL
     let client: HTTPClient
     
-    public enum Error: Swift.Error {
+    public enum Error: Swift.Error, Equatable {
         case connectivity
         case invalidData
     }
+    
+    public typealias Result = AnimeFeedLoader.Result
     
     public init(url: URL, client: HTTPClient) {
         self.url = url
         self.client = client
     }
-    
-    typealias Result = HTTPClient.Result
-    
-    public func load(completion: @escaping (Error) -> Void) {
+        
+    public func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { result in
-            
             switch result {
             case .success:
-                completion(.invalidData)
+                completion(.failure(Error.invalidData))
             case .failure:
-                completion(.connectivity)
+                completion(.failure(Error .connectivity))
             }
         }
     }
