@@ -9,10 +9,10 @@ import XCTest
 import AnimeFeed
 
 final class RemoteAnimeFeedLoaderTests: XCTestCase {
-
+    
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
-                
+        
         XCTAssertTrue(client.requestedURLs.isEmpty)
     }
     
@@ -50,12 +50,15 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
     func test_load_deliversErrorOnNon200HTTPResponse() {
         let (sut, client) = makeSUT()
         
-        var capturedError = [RemoteAnimeFeedLoader.Error]()
-        sut.load { capturedError.append($0) }
-        
-        client.complete(withStatusCode: 400)
-        
-        XCTAssertEqual(capturedError, [.invalidData])
+        let samples = [199, 201, 300, 400, 500]
+        samples.enumerated().forEach { index, code in
+            var capturedError = [RemoteAnimeFeedLoader.Error]()
+            sut.load { capturedError.append($0) }
+            
+            client.complete(withStatusCode: code, at: index)
+            
+            XCTAssertEqual(capturedError, [.invalidData])
+        }
     }
     
     
@@ -73,7 +76,7 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         var requestedURLs: [URL] {
             return messages.map { $0.url }
         }
-
+        
         func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void) {
             messages.append((url, completion))
         }
@@ -92,6 +95,6 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
             messages[index].completion(nil, response)
         }
     }
-
+    
 }
 
