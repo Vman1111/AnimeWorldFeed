@@ -17,6 +17,7 @@
 		FA9D9AC62BE1619100B3EF39 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9AC52BE1619100B3EF39 /* Images.swift */; };
 		FA9D9AC82BE161E900B3EF39 /* JPGImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9AC72BE161E900B3EF39 /* JPGImages.swift */; };
 		FA9D9ACA2BE1621E00B3EF39 /* WEBPImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9AC92BE1621E00B3EF39 /* WEBPImages.swift */; };
+		FA9D9ACC2BE1629800B3EF39 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9ACB2BE1629800B3EF39 /* Pagination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		FA9D9AC52BE1619100B3EF39 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		FA9D9AC72BE161E900B3EF39 /* JPGImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPGImages.swift; sourceTree = "<group>"; };
 		FA9D9AC92BE1621E00B3EF39 /* WEBPImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WEBPImages.swift; sourceTree = "<group>"; };
+		FA9D9ACB2BE1629800B3EF39 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				FA9D9AC92BE1621E00B3EF39 /* WEBPImages.swift */,
 				FA9D9AC72BE161E900B3EF39 /* JPGImages.swift */,
 				FA9D9AC52BE1619100B3EF39 /* Images.swift */,
+				FA9D9ACB2BE1629800B3EF39 /* Pagination.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				FA9D9AC82BE161E900B3EF39 /* JPGImages.swift in Sources */,
 				FA30BAE52BCD855400FBF268 /* RemoteAnimeFeedLoader.swift in Sources */,
 				FA9D9AC62BE1619100B3EF39 /* Images.swift in Sources */,
+				FA9D9ACC2BE1629800B3EF39 /* Pagination.swift in Sources */,
 				FA30BAE72BCD856600FBF268 /* HTTPClient.swift in Sources */,
 				FA446F852BCD4BFC00E85C70 /* AnimeFeedLoader.swift in Sources */,
 			);

@@ -24,16 +24,6 @@ public struct AnimeItem: Equatable {
 }
 
 extension AnimeItem: Decodable {
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.id = try container.decode(Int64.self, forKey: .id)
-        self.url = try container.decode(String.self, forKey: .url)
-        self.images = try container.decode(Images.self, forKey: .images)
-        self.synopsis = try container.decode(String.self, forKey: .synopsis)
-        self.background = try container.decode(String.self, forKey: .background)
-    }
-
     enum CodingKeys: String, CodingKey {
         case id = "mal_id"
         case url
