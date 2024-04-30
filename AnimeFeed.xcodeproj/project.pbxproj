@@ -14,6 +14,7 @@
 		FA446F832BCD40D800E85C70 /* AnimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F822BCD40D800E85C70 /* AnimeItem.swift */; };
 		FA446F852BCD4BFC00E85C70 /* AnimeFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */; };
 		FA446F882BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */; };
+		FA9D9AC62BE1619100B3EF39 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9AC52BE1619100B3EF39 /* Images.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		FA446F822BCD40D800E85C70 /* AnimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeItem.swift; sourceTree = "<group>"; };
 		FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeFeedLoader.swift; sourceTree = "<group>"; };
 		FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAnimeFeedLoaderTests.swift; sourceTree = "<group>"; };
+		FA9D9AC52BE1619100B3EF39 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +106,19 @@
 		FA446F862BCD53DF00E85C70 /* Anime Feed Feature */ = {
 			isa = PBXGroup;
 			children = (
-				FA446F822BCD40D800E85C70 /* AnimeItem.swift */,
+				FA9D9AC42BE1617A00B3EF39 /* Models */,
 				FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */,
 			);
 			path = "Anime Feed Feature";
+			sourceTree = "<group>";
+		};
+		FA9D9AC42BE1617A00B3EF39 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA446F822BCD40D800E85C70 /* AnimeItem.swift */,
+				FA9D9AC52BE1619100B3EF39 /* Images.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +234,7 @@
 			files = (
 				FA446F832BCD40D800E85C70 /* AnimeItem.swift in Sources */,
 				FA30BAE52BCD855400FBF268 /* RemoteAnimeFeedLoader.swift in Sources */,
+				FA9D9AC62BE1619100B3EF39 /* Images.swift in Sources */,
 				FA30BAE72BCD856600FBF268 /* HTTPClient.swift in Sources */,
 				FA446F852BCD4BFC00E85C70 /* AnimeFeedLoader.swift in Sources */,
 			);

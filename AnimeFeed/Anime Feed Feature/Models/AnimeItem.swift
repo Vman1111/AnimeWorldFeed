@@ -43,17 +43,6 @@ extension AnimeItem: Decodable {
     }
 }
 
-
-public struct Images: Decodable, Equatable {
-    public let jpg: JPGImages
-    public let webp: WEBPImages
-    
-    public init(jpg: JPGImages, webp: WEBPImages) {
-        self.jpg = jpg
-        self.webp = webp
-    }
-}
-
 public struct JPGImages: Decodable, Equatable {
     public let image_url: String
     public let small_image_url: String
