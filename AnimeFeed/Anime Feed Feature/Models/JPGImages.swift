@@ -8,9 +8,9 @@
 import Foundation
 
 public struct JPGImages: Decodable, Equatable {
-    public let image_url: String
-    public let small_image_url: String
-    public let large_image_url: String
+    public let image_url: String?
+    public let small_image_url: String?
+    public let large_image_url: String?
     
     public init(image_url: String, small_image_url: String, large_image_url: String) {
         self.image_url = image_url

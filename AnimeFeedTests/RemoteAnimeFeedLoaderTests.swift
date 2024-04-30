@@ -76,85 +76,14 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
         
-        let jpgImage = JPGImages(image_url: "https://cdn.myanimelist.net/images/anime/4/19644.jpg",
-                                 small_image_url: "https://cdn.myanimelist.net/images/anime/4/19644t.jpg",
-                                 large_image_url: "https://cdn.myanimelist.net/images/anime/4/19644l.jpg")
+        let animeItem1 = makeItem(id: 1, url: "http://a-url.com", images: makeImages(), background: "Description")
+        let animeItem2 = makeItem(id: 2, url: "http://a-second-url.com", images: makeImages(), synopsis: "Synopsis")
+        let animeItem3 = makeItem(id: 2, images: makeImages(), synopsis: "Synopsis", background: "Backgroud")
         
-        let webpImage = WEBPImages(image_url: "https://cdn.myanimelist.net/images/anime/4/19644.webp",
-                                   small_image_url: "https://cdn.myanimelist.net/images/anime/4/19644t.webp",
-                                   large_image_url: "https://cdn.myanimelist.net/images/anime/4/19644l.webp")
+        let animeItems = [animeItem1.model, animeItem2.model, animeItem3.model]
         
-        let images = Images(jpg: jpgImage, webp: webpImage)
-        
-        let item1 = AnimeItem(id: 1,
-                              url: "https://myanimelist.net/anime/1/Cowboy_Bebop",
-                              images: images,
-                              synopsis: "",
-                              background: "This is background")
-        
-        let item1JPGImagesJSON = [
-            "image_url": item1.images.jpg.image_url,
-            "small_image_url": item1.images.jpg.small_image_url,
-            "large_image_url": item1.images.jpg.large_image_url
-        ]
-        
-        let item1WEBPImagesJSON = [
-            "image_url": item1.images.webp.image_url,
-            "small_image_url": item1.images.webp.small_image_url,
-            "large_image_url": item1.images.webp.large_image_url
-        ]
-        
-        let item1ImagesJSON = [
-            "jpg": item1JPGImagesJSON,
-            "webp": item1WEBPImagesJSON
-        ]
-        
-        let item1JSON: [String : Any] = [
-            "mal_id": item1.id,
-            "url": item1.url,
-            "images": item1ImagesJSON,
-            "synopsis": item1.synopsis!,
-            "background": item1.background!
-        ] as [String : Any]
-        
-        let item2 = AnimeItem(id: 5,
-                              url: "https://myanimelist.net/anime/5/Cowboy_Bebop__Tengoku_no_Tobira",
-                              images: images,
-                              synopsis: "This is syniopsis",
-                              background: "")
-        
-        let item2JPGImagesJSON = [
-            "image_url": item2.images.jpg.image_url,
-            "small_image_url": item2.images.jpg.small_image_url,
-            "large_image_url": item2.images.jpg.large_image_url
-        ]
-        
-        let item2WEBPImagesJSON = [
-            "image_url": item2.images.webp.image_url,
-            "small_image_url": item2.images.webp.small_image_url,
-            "large_image_url": item2.images.webp.large_image_url
-        ]
-        
-        let Item2ImagesJSON = [
-            "jpg": item2JPGImagesJSON,
-            "webp": item2WEBPImagesJSON
-        ]
-        
-        let item2JSON = [
-            "mal_id": item2.id,
-            "url": item2.url,
-            "images": Item2ImagesJSON,
-            "synopsis": item2.synopsis!,
-            "background": item2.background!
-        ] as [String : Any]
-        
-        let animeItemsJSON = [
-            "data": [item1JSON, item2JSON]
-        ]
-        
-        expect(sut, toCompleteWith: .success([item1, item2]), when: {
-            let json = try! JSONSerialization.data(withJSONObject: animeItemsJSON)
-            client.complete(withStatusCode: 200, data: json)
+        expect(sut, toCompleteWith: .success(animeItems), when: {
+            client.complete(withStatusCode: 200, data: makeItemsJSON([animeItem1.json, animeItem2.json, animeItem3.json]))
         })
     }
     
@@ -163,6 +92,49 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         let sut = RemoteAnimeFeedLoader(url: url, client: client)
         return (sut, client)
+    }
+    
+    private func makeImages() -> Images {
+        let jpgImages = JPGImages(image_url: "http://a-image-url.com", small_image_url: "http://a-small-image-url.com", large_image_url: "http://a-large-image-url.com")
+        let webpImages = WEBPImages(image_url: "http://a-image-url.com", small_image_url: "http://a-small-image-url.com", large_image_url: "http://a-large-image-url.com")
+        let images = Images(jpg: jpgImages, webp: webpImages)
+        return images
+    }
+    
+    private func makeItem(id: Int64, url: String? = nil, images: Images, synopsis: String? = nil, background: String? = nil) -> (model: AnimeItem, json: [String: Any]) {
+        let item = AnimeItem(id: id, url: url, images: images, synopsis: synopsis, background: background)
+        
+        let itemJPGImagesJSON = [
+            "image_url": item.images.jpg.image_url,
+            "small_image_url": item.images.jpg.small_image_url,
+            "large_image_url": item.images.jpg.large_image_url
+        ]
+        
+        let itemWEBPImagesJSON = [
+            "image_url": item.images.webp.image_url,
+            "small_image_url": item.images.webp.small_image_url,
+            "large_image_url": item.images.webp.large_image_url
+        ]
+        
+        let item1ImagesJSON = [
+            "jpg": itemJPGImagesJSON,
+            "webp": itemWEBPImagesJSON
+        ]
+        
+        let json: [String : Any] = [
+            "mal_id": item.id,
+            "url": item.url,
+            "images": item1ImagesJSON,
+            "synopsis": item.synopsis,
+            "background": item.background
+        ].compactMapValues { $0
+        }
+        return (item, json)
+    }
+    
+    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
+        let json = ["data": items]
+        return try! JSONSerialization.data(withJSONObject: json)
     }
     
     func expect(_ sut: RemoteAnimeFeedLoader, toCompleteWith result: RemoteAnimeFeedLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {

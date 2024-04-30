@@ -9,12 +9,12 @@ import Foundation
 
 public struct AnimeItem: Equatable {
     public let id: Int64
-    public let url: String
+    public let url: String?
     public let images: Images
     public let synopsis: String?
     public let background: String?
     
-    public init(id: Int64, url: String, images: Images, synopsis: String, background: String) {
+    public init(id: Int64, url: String?, images: Images, synopsis: String?, background: String?) {
         self.id = id
         self.url = url
         self.images = images
