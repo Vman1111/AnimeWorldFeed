@@ -27,8 +27,8 @@ public final class RemoteAnimeFeedLoader {
         client.get(from: url) { result in
             switch result {
             case let .success((data, _)):
-                if let _ = try? JSONSerialization.jsonObject(with: data) {
-                    completion(.success([]))
+                if let animeRoot = try? JSONDecoder().decode(AnimeRoot.self, from: data) {
+                    completion(.success(animeRoot.data))
                 } else {
                     completion(.failure(.invalidData))
                 }
@@ -37,4 +37,8 @@ public final class RemoteAnimeFeedLoader {
             }
         }
     }
+}
+
+private struct AnimeRoot: Decodable {
+    let data: [AnimeItem]
 }

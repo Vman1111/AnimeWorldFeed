@@ -8,56 +8,28 @@
 import Foundation
 
 public struct AnimeItem: Equatable {
-    let id: Int64
-    let url: String
-    let images: Images
-    let approved: Bool
-    let title: String
-    let title_english: String
-    let title_japanese: String
-    let type: String
-    let source: String
-    let episodes: Int
-    let status: String
-    let airing: Bool
-    let synopsis: String
-    let background: String
+    public let id: Int64
+    public let url: String
+    public let images: Images
+    public let synopsis: String?
+    public let background: String?
+    
+    public init(id: Int64, url: String, images: Images, synopsis: String, background: String) {
+        self.id = id
+        self.url = url
+        self.images = images
+        self.synopsis = synopsis
+        self.background = background
+    }
 }
 
-struct Images: Decodable, Equatable {
-    let jpg: JPGImages
-    let webp: WEBPImages
-}
-
-struct JPGImages: Decodable, Equatable {
-    let image_url: String
-    let small_image_url: String
-    let large_image_url: String
-}
-
-struct WEBPImages: Decodable, Equatable {
-    let image_url: String
-    let small_image_url: String
-    let large_image_url: String
-}
-
-
-extension AnimeItem {
-    init(from decoder: Decoder) throws {
+extension AnimeItem: Decodable {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try container.decode(Int64.self, forKey: .id)
         self.url = try container.decode(String.self, forKey: .url)
         self.images = try container.decode(Images.self, forKey: .images)
-        self.approved = try container.decode(Bool.self, forKey: .approved)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.title_english = try container.decode(String.self, forKey: .title_english)
-        self.title_japanese = try container.decode(String.self, forKey: .title_japanese)
-        self.type = try container.decode(String.self, forKey: .type)
-        self.source = try container.decode(String.self, forKey: .source)
-        self.episodes = try container.decode(Int.self, forKey: .episodes)
-        self.status = try container.decode(String.self, forKey: .status)
-        self.airing = try container.decode(Bool.self, forKey: .airing)
         self.synopsis = try container.decode(String.self, forKey: .synopsis)
         self.background = try container.decode(String.self, forKey: .background)
     }
@@ -66,16 +38,42 @@ extension AnimeItem {
         case id = "mal_id"
         case url
         case images
-        case approved
-        case title
-        case title_english
-        case title_japanese
-        case type
-        case source
-        case episodes
-        case status
-        case airing
         case synopsis
         case background
+    }
+}
+
+
+public struct Images: Decodable, Equatable {
+    public let jpg: JPGImages
+    public let webp: WEBPImages
+    
+    public init(jpg: JPGImages, webp: WEBPImages) {
+        self.jpg = jpg
+        self.webp = webp
+    }
+}
+
+public struct JPGImages: Decodable, Equatable {
+    public let image_url: String
+    public let small_image_url: String
+    public let large_image_url: String
+    
+    public init(image_url: String, small_image_url: String, large_image_url: String) {
+        self.image_url = image_url
+        self.small_image_url = small_image_url
+        self.large_image_url = large_image_url
+    }
+}
+
+public struct WEBPImages: Decodable, Equatable {
+    public let image_url: String
+    public let small_image_url: String
+    public let large_image_url: String
+    
+    public init(image_url: String, small_image_url: String, large_image_url: String) {
+        self.image_url = image_url
+        self.small_image_url = small_image_url
+        self.large_image_url = large_image_url
     }
 }

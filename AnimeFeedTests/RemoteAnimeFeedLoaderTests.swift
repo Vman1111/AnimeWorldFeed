@@ -73,6 +73,91 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         })
     }
     
+    func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
+        let (sut, client) = makeSUT()
+        
+        let jpgImage = JPGImages(image_url: "https://cdn.myanimelist.net/images/anime/4/19644.jpg",
+                                 small_image_url: "https://cdn.myanimelist.net/images/anime/4/19644t.jpg",
+                                 large_image_url: "https://cdn.myanimelist.net/images/anime/4/19644l.jpg")
+        
+        let webpImage = WEBPImages(image_url: "https://cdn.myanimelist.net/images/anime/4/19644.webp",
+                                   small_image_url: "https://cdn.myanimelist.net/images/anime/4/19644t.webp",
+                                   large_image_url: "https://cdn.myanimelist.net/images/anime/4/19644l.webp")
+        
+        let images = Images(jpg: jpgImage, webp: webpImage)
+        
+        let item1 = AnimeItem(id: 1,
+                              url: "https://myanimelist.net/anime/1/Cowboy_Bebop",
+                              images: images,
+                              synopsis: "",
+                              background: "This is background")
+        
+        let item1JPGImagesJSON = [
+            "image_url": item1.images.jpg.image_url,
+            "small_image_url": item1.images.jpg.small_image_url,
+            "large_image_url": item1.images.jpg.large_image_url
+        ]
+        
+        let item1WEBPImagesJSON = [
+            "image_url": item1.images.webp.image_url,
+            "small_image_url": item1.images.webp.small_image_url,
+            "large_image_url": item1.images.webp.large_image_url
+        ]
+        
+        let item1ImagesJSON = [
+            "jpg": item1JPGImagesJSON,
+            "webp": item1WEBPImagesJSON
+        ]
+        
+        let item1JSON: [String : Any] = [
+            "mal_id": item1.id,
+            "url": item1.url,
+            "images": item1ImagesJSON,
+            "synopsis": item1.synopsis!,
+            "background": item1.background!
+        ] as [String : Any]
+        
+        let item2 = AnimeItem(id: 5,
+                              url: "https://myanimelist.net/anime/5/Cowboy_Bebop__Tengoku_no_Tobira",
+                              images: images,
+                              synopsis: "This is syniopsis",
+                              background: "")
+        
+        let item2JPGImagesJSON = [
+            "image_url": item2.images.jpg.image_url,
+            "small_image_url": item2.images.jpg.small_image_url,
+            "large_image_url": item2.images.jpg.large_image_url
+        ]
+        
+        let item2WEBPImagesJSON = [
+            "image_url": item2.images.webp.image_url,
+            "small_image_url": item2.images.webp.small_image_url,
+            "large_image_url": item2.images.webp.large_image_url
+        ]
+        
+        let Item2ImagesJSON = [
+            "jpg": item2JPGImagesJSON,
+            "webp": item2WEBPImagesJSON
+        ]
+        
+        let item2JSON = [
+            "mal_id": item2.id,
+            "url": item2.url,
+            "images": Item2ImagesJSON,
+            "synopsis": item2.synopsis!,
+            "background": item2.background!
+        ] as [String : Any]
+        
+        let animeItemsJSON = [
+            "data": [item1JSON, item2JSON]
+        ]
+        
+        expect(sut, toCompleteWith: .success([item1, item2]), when: {
+            let json = try! JSONSerialization.data(withJSONObject: animeItemsJSON)
+            client.complete(withStatusCode: 200, data: json)
+        })
+    }
+    
     // MARK: Helpers
     private func makeSUT(url: URL = URL(string: "http://a-url.com")!) -> (sut: RemoteAnimeFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
