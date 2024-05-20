@@ -22,13 +22,3 @@ public struct AnimeItem: Equatable {
         self.background = background
     }
 }
-
-extension AnimeItem: Decodable {
-    enum CodingKeys: String, CodingKey {
-        case id = "mal_id"
-        case url
-        case images
-        case synopsis
-        case background
-    }
-}
