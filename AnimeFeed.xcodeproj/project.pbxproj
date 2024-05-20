@@ -30,6 +30,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FABFD5DE2BEFBCB400A35E72 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		FA30BAE42BCD855400FBF268 /* RemoteAnimeFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAnimeFeedLoader.swift; sourceTree = "<group>"; };
 		FA30BAE62BCD856600FBF268 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -151,7 +163,7 @@
 				FA446F652BCD3EB900E85C70 /* Headers */,
 				FA446F662BCD3EB900E85C70 /* Sources */,
 				FA446F672BCD3EB900E85C70 /* Frameworks */,
-				FA446F682BCD3EB900E85C70 /* Resources */,
+				FABFD5DE2BEFBCB400A35E72 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -220,13 +232,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FA446F682BCD3EB900E85C70 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FA446F702BCD3EB900E85C70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
