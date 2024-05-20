@@ -26,8 +26,8 @@ public final class RemoteAnimeFeedLoader {
     public func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { result in
             switch result {
-            case let .success((data, _)):
-                if let animeRoot = try? JSONDecoder().decode(AnimeRoot.self, from: data) {
+            case let .success((data, response)):
+                if response.statusCode == 200, let animeRoot = try? JSONDecoder().decode(AnimeRoot.self, from: data) {
                     completion(.success(animeRoot.data))
                 } else {
                     completion(.failure(.invalidData))
