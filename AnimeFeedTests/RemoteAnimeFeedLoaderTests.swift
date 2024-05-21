@@ -73,8 +73,8 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         let pagination = makePagination(lastVisiblePage: 20, hasNextPage: true, count: 10, total: 200, perPage: 20)
         
         expect(sut, toCompleteWith: .success(AnimeResponse(data: [], pagination: pagination.pagination)), when: {
-            let emptyListJSON = Data("{\"data\": [], \"pagination\": { \"last_visible_page\": 20, \"has_next_page\": true, \"items\": { \"count\": 10, \"total\": 200, \"per_page\": 20}}}".utf8)
-            client.complete(withStatusCode: 200, data: emptyListJSON)
+            let emptyListJSONWithPagination = Data("{\"data\": [], \"pagination\": { \"last_visible_page\": 20, \"has_next_page\": true, \"items\": { \"count\": 10, \"total\": 200, \"per_page\": 20}}}".utf8)
+            client.complete(withStatusCode: 200, data: emptyListJSONWithPagination)
         })
     }
     
