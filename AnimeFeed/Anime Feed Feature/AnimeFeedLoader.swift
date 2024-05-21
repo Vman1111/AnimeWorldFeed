@@ -7,8 +7,18 @@
 
 import Foundation
 
+public struct AnimeResponse: Equatable {
+    public let data: [AnimeItem]
+    public let pagination: Pagination
+    
+    public init(data: [AnimeItem], pagination: Pagination) {
+        self.data = data
+        self.pagination = pagination
+    }
+}
+
 public protocol AnimeFeedLoader {
-    typealias Result = Swift.Result<[AnimeItem], RemoteAnimeFeedLoader.Error>
+    typealias Result = Swift.Result<AnimeResponse, RemoteAnimeFeedLoader.Error>
     
     func load(completion: @escaping (Result) -> Void)
 }

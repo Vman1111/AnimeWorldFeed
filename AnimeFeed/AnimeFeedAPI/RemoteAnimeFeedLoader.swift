@@ -28,7 +28,10 @@ public final class RemoteAnimeFeedLoader {
             switch result {
             case let .success((data, response)):
                 if response.statusCode == 200, let animeRoot = try? JSONDecoder().decode(AnimeRoot.self, from: data) {
-                    completion(.success(animeRoot.data.map { $0.item}))
+                    let response = AnimeResponse(data: animeRoot.data.map { $0.item },
+                                                 pagination: animeRoot.pagination.item)
+                    completion(.success(response))
+                    
                 } else {
                     completion(.failure(.invalidData))
                 }
@@ -41,6 +44,7 @@ public final class RemoteAnimeFeedLoader {
 
 private struct AnimeRoot: Decodable {
     let data: [Item]
+    let pagination: PaginationItem
 }
 
 private struct Item: Decodable {
@@ -54,3 +58,20 @@ private struct Item: Decodable {
         return AnimeItem(id: mal_id, url: url, images: images, synopsis: synopsis, background: background)
     }
 }
+
+private struct PaginationItem: Decodable {
+    let last_visible_page: Int?
+    let has_next_page: Bool?
+    let items: PaginationItemCount
+    
+    var item: Pagination {
+        return Pagination(lastVisiblePage: last_visible_page, hasNextPage: has_next_page, count: items.count, total: items.total, perPage: items.per_page)
+    }
+}
+
+private struct PaginationItemCount: Decodable {
+    let count: Int?
+    let total: Int?
+    let per_page: Int?
+}
+

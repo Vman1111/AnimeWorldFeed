@@ -7,14 +7,20 @@
 
 import Foundation
 
-public struct Pagination {
-    public let last_visible_page: Int?
-    public let has_next_page: Bool?
+public struct Pagination: Equatable {
+    public let lastVisiblePage: Int?
+    public let hasNextPage: Bool?
     public let items: ItemCount
+    
+    public init(lastVisiblePage: Int?, hasNextPage: Bool?, count: Int?, total: Int?, perPage: Int?) {
+        self.lastVisiblePage = lastVisiblePage
+        self.hasNextPage = hasNextPage
+        self.items = ItemCount(count: count, total: total, perPage: perPage)
+    }
 }
 
-public struct ItemCount {
+public struct ItemCount: Equatable {
     public let count: Int?
     public let total: Int?
-    public let per_page: Int?
+    public let perPage: Int?
 }
