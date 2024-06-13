@@ -27,12 +27,7 @@ public final class RemoteAnimeFeedLoader {
         client.get(from: url, page: page) { result in
             switch result {
             case let .success((data, response)):
-                do {
-                    let animeRoot = try AnimeItemsMapper.map(data, response)
-                    completion(.success(animeRoot))
-                } catch {
-                    completion(.failure(.invalidData))
-                }
+                completion(AnimeItemsMapper.map(data, from: response))
             case .failure:
                 completion(.failure(Error .connectivity))
             }

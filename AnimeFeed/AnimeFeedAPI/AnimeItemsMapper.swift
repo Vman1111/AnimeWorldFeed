@@ -11,8 +11,12 @@ final class AnimeItemsMapper {
     private struct AnimeRoot: Decodable {
         let data: [Item]
         let pagination: PaginationItem
+        
+        var animeFeed: [AnimeItem] {
+            return data.map { $0.item }
+        }
     }
-
+    
     private struct Item: Decodable {
         let mal_id: Int64
         let url: String?
@@ -24,7 +28,7 @@ final class AnimeItemsMapper {
             return AnimeItem(id: mal_id, url: url, images: images, synopsis: synopsis, background: background)
         }
     }
-
+    
     private struct PaginationItem: Decodable {
         let last_visible_page: Int?
         let has_next_page: Bool?
@@ -34,7 +38,7 @@ final class AnimeItemsMapper {
             return Pagination(lastVisiblePage: last_visible_page, hasNextPage: has_next_page, count: items.count, total: items.total, perPage: items.per_page)
         }
     }
-
+    
     private struct PaginationItemCount: Decodable {
         let count: Int?
         let total: Int?
@@ -43,13 +47,14 @@ final class AnimeItemsMapper {
     
     private static var OK_200: Int { return 200 }
     
-    static func map(_ data: Data, _ response: HTTPURLResponse) throws -> AnimeResponse {
-        guard response.statusCode == OK_200 else {
-            throw RemoteAnimeFeedLoader.Error.invalidData
+    internal static func map(_ data: Data, from response: HTTPURLResponse) -> RemoteAnimeFeedLoader.Result {
+        guard response.statusCode == OK_200,
+            let root = try? JSONDecoder().decode(AnimeRoot.self, from: data) else {
+            return .failure(.invalidData)
         }
         
-        let root = try JSONDecoder().decode(AnimeRoot.self, from: data)
-        return AnimeResponse(data: root.data.map { $0.item },
-                             pagination: root.pagination.item )
+        let animeResponse = AnimeResponse(data: root.animeFeed,
+                                          pagination: root.pagination.item )
+        return .success(animeResponse)
     }
 }
