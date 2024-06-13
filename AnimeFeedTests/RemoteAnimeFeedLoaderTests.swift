@@ -190,7 +190,7 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
     
-    func expect(_ sut: RemoteAnimeFeedLoader, toCompleteWith result: RemoteAnimeFeedLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+    func expect(_ sut: RemoteAnimeFeedLoader, toCompleteWith result: RemoteAnimeFeedLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         var capturedResults = [RemoteAnimeFeedLoader.Result]()
         sut.load { capturedResults.append($0) }
         
@@ -210,7 +210,7 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
             messages.append((url, completion))
         }
         
-        func complete(with error: Error, at index: Int = 0) {
+        func complete(with error: any Error, at index: Int = 0) {
             messages[index].completion(.failure(error))
         }
         

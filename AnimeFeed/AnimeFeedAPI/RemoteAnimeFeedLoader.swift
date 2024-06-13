@@ -9,7 +9,7 @@ import Foundation
 
 public final class RemoteAnimeFeedLoader {
     let url: URL
-    let client: HTTPClient
+    let client: any HTTPClient
     
     public enum Error: Swift.Error, Equatable {
         case connectivity
@@ -18,7 +18,7 @@ public final class RemoteAnimeFeedLoader {
     
     public typealias Result = AnimeFeedLoader.Result
     
-    public init(url: URL, client: HTTPClient) {
+    public init(url: URL, client: any HTTPClient) {
         self.url = url
         self.client = client
     }
