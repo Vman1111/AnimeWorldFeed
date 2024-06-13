@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AnimeItemsMapper {
+final class AnimeItemsMapper {
     private struct AnimeRoot: Decodable {
         let data: [Item]
         let pagination: PaginationItem
