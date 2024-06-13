@@ -23,8 +23,8 @@ public final class RemoteAnimeFeedLoader {
         self.client = client
     }
         
-    public func load(completion: @escaping (Result) -> Void) {
-        client.get(from: url) { result in
+    public func load(page: Int = 1, completion: @escaping (Result) -> Void) {
+        client.get(from: url, page: page) { result in
             switch result {
             case let .success((data, response)):
                 do {

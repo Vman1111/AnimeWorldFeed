@@ -83,7 +83,7 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         
         let animeItem1 = makeItem(id: 1, url: "http://a-url.com", images: makeImages(), background: "Description")
         let animeItem2 = makeItem(id: 2, url: "http://a-second-url.com", images: makeImages(), synopsis: "Synopsis")
-        let animeItem3 = makeItem(id: 2, images: makeImages(), synopsis: "Synopsis", background: "Backgroud")
+        let animeItem3 = makeItem(id: 3, images: makeImages(), synopsis: "Synopsis", background: "Backgroud")
         
         let animeItems = [animeItem1.model, animeItem2.model, animeItem3.model]
         let pagination = makePagination(lastVisiblePage: 20, hasNextPage: true, count: 10, total: 200, perPage: 20)
@@ -98,7 +98,7 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         
         let animeItem1 = makeItem(id: 1, url: "http://a-url.com", images: makeImages(), background: "Description")
         let animeItem2 = makeItem(id: 2, url: "http://a-second-url.com", images: makeImages(), synopsis: "Synopsis")
-        let animeItem3 = makeItem(id: 2, images: makeImages(), synopsis: "Synopsis", background: "Backgroud")
+        let animeItem3 = makeItem(id: 3, images: makeImages(), synopsis: "Synopsis", background: "Backgroud")
         
         let animeItems = [animeItem1.model, animeItem2.model, animeItem3.model]
         let pagination = makePagination(lastVisiblePage: 1000, hasNextPage: true, count: 2, total: 10000, perPage: 20)
@@ -111,16 +111,25 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
     func test_load_deliversErrorOn200HTTPResponseWithNoPagination() {
         let (sut, client) = makeSUT()
         
-        let animeItem1 = makeItem(id: 1, url: "http://a-url.com", images: makeImages(), background: "Description")
-        let animeItem2 = makeItem(id: 2, url: "http://a-second-url.com", images: makeImages(), synopsis: "Synopsis")
-        let animeItem3 = makeItem(id: 2, images: makeImages(), synopsis: "Synopsis", background: "Backgroud")
-        
-        let animeItems = [animeItem1.model, animeItem2.model, animeItem3.model]
-        let pagination = makePagination(lastVisiblePage: 1000, hasNextPage: true, count: 2, total: 10000, perPage: 20)
         
         expect(sut, toCompleteWith: .failure(.invalidData), when: {
             let json = makeItemsJSON([], pagination: ["":0])
             client.complete(withStatusCode: 200, data: json)
+        })
+    }
+    
+    func test_load_deliversPage2ItemsWhenPage2IsRequested() {
+        let (sut, client) = makeSUT() 
+        
+        let animeItem4 = makeItem(id: 4, url: "http://a-url.com", images: makeImages(), background: "Description")
+        let animeItem5 = makeItem(id: 5, url: "http://a-second-url.com", images: makeImages(), synopsis: "Synopsis")
+        let animeItem6 = makeItem(id: 6, images: makeImages(), synopsis: "Synopsis", background: "Backgroud")
+        
+        let animeItems = [animeItem4.model, animeItem5.model, animeItem6.model]
+        let pagination = makePagination(lastVisiblePage: 1000, hasNextPage: true, count: 2, total: 10000, perPage: 20)
+        
+        expect(sut, toCompleteWith: .success(AnimeResponse(data: animeItems, pagination: pagination.pagination)), requesedPage: 2, when: {
+            client.complete(withStatusCode: 200, data: makeItemsJSON([animeItem4.json, animeItem5.json, animeItem6.json], pagination: pagination.json))
         })
     }
     
@@ -190,9 +199,9 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
     
-    func expect(_ sut: RemoteAnimeFeedLoader, toCompleteWith result: RemoteAnimeFeedLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    func expect(_ sut: RemoteAnimeFeedLoader, toCompleteWith result: RemoteAnimeFeedLoader.Result, requesedPage: Int = 1, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         var capturedResults = [RemoteAnimeFeedLoader.Result]()
-        sut.load { capturedResults.append($0) }
+        sut.load(page: requesedPage) { capturedResults.append($0) }
         
         action()
         
@@ -206,7 +215,7 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
             return messages.map { $0.url }
         }
         
-        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
+        func get(from url: URL, page: Int = 1, completion: @escaping (HTTPClient.Result) -> Void) {
             messages.append((url, completion))
         }
         
