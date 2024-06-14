@@ -119,7 +119,7 @@
 		FA446F762BCD3EB900E85C70 /* AnimeFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */,
+				FA9AAA592C1CAD7500F02052 /* AnimeFeedAPI */,
 			);
 			path = AnimeFeedTests;
 			sourceTree = "<group>";
@@ -131,6 +131,14 @@
 				FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */,
 			);
 			path = "Anime Feed Feature";
+			sourceTree = "<group>";
+		};
+		FA9AAA592C1CAD7500F02052 /* AnimeFeedAPI */ = {
+			isa = PBXGroup;
+			children = (
+				FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */,
+			);
+			path = AnimeFeedAPI;
 			sourceTree = "<group>";
 		};
 		FA9D9AC42BE1617A00B3EF39 /* Models */ = {
