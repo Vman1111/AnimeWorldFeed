@@ -7,7 +7,8 @@
 
 import Foundation
 
-public final class RemoteAnimeFeedLoader {
+public final class RemoteAnimeFeedLoader: AnimeFeedLoader {
+    
     let url: URL
     let client: any HTTPClient
     

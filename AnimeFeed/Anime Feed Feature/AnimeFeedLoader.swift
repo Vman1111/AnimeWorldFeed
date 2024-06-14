@@ -20,5 +20,5 @@ public struct AnimeResponse: Equatable {
 public protocol AnimeFeedLoader {
     typealias Result = Swift.Result<AnimeResponse, RemoteAnimeFeedLoader.Error>
     
-    func load(completion: @escaping (Result) -> Void)
+    func load(page: Int, completion: @escaping (Result) -> Void)
 }
