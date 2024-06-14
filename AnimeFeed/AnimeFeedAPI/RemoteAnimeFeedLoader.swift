@@ -24,7 +24,9 @@ public final class RemoteAnimeFeedLoader {
     }
         
     public func load(page: Int = 1, completion: @escaping (Result) -> Void) {
-        client.get(from: url, page: page) { result in
+        client.get(from: url, page: page) { [weak self] result in
+            guard self != nil else { return }
+            
             switch result {
             case let .success((data, response)):
                 completion(AnimeItemsMapper.map(data, from: response))
