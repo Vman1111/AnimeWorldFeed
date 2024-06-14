@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AnimeResponse: Equatable {
+public struct AnimeResponse {
     public let data: [AnimeItem]
     public let pagination: Pagination
     
