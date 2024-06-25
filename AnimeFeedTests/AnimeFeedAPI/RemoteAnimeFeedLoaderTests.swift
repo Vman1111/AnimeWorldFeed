@@ -127,7 +127,7 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         let animeItems = [animeItem4.model, animeItem5.model, animeItem6.model]
         let pagination = makePagination(lastVisiblePage: 1000, hasNextPage: true, count: 2, total: 10000, perPage: 20)
         
-        expect(sut, toCompleteWith: .success(AnimeResponse(data: animeItems, pagination: pagination.pagination)), requesedPage: 2, when: {
+        expect(sut, toCompleteWith: .success(AnimeResponse(data: animeItems, pagination: pagination.pagination)), when: {
             client.complete(withStatusCode: 200, data: makeItemsJSON([animeItem4.json, animeItem5.json, animeItem6.json], pagination: pagination.json))
         })
     }
@@ -214,11 +214,11 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
     
-    func expect(_ sut: RemoteAnimeFeedLoader, toCompleteWith expectedResult: RemoteAnimeFeedLoader.Result, requesedPage: Int = 1, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    func expect(_ sut: RemoteAnimeFeedLoader, toCompleteWith expectedResult: RemoteAnimeFeedLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         
         let exp = expectation(description: "Wait for load completion")
         
-        sut.load(page: requesedPage) { receivedResult in
+        sut.load() { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedItems), .success(expectedItems)):
                 XCTAssertEqual(receivedItems.data, expectedItems.data, file: file, line: line)
@@ -244,7 +244,7 @@ final class RemoteAnimeFeedLoaderTests: XCTestCase {
             return messages.map { $0.url }
         }
         
-        func get(from url: URL, page: Int = 1, completion: @escaping (HTTPClient.Result) -> Void) {
+        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
             messages.append((url, completion))
         }
         

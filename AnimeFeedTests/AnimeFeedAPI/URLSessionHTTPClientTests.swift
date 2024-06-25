@@ -8,7 +8,7 @@
 import XCTest
 import AnimeFeed
 
-class URLSessionHTTPClient {
+class URLSessionHTTPClient: HTTPClient {
     private let session: URLSession
     
     init(session: URLSession = .shared) {
@@ -17,14 +17,14 @@ class URLSessionHTTPClient {
     
     struct UnexpectedValuesRepresentation: Error {}
     
-    func get(from url: URL, completionHandler: @escaping (HTTPClient.Result) -> Void) {
+    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
         session.dataTask(with: url) { data, response, error in
             if let error = error {
-                completionHandler(.failure(error))
+                completion(.failure(error))
             } else if let data = data, let response = response as? HTTPURLResponse {
-                completionHandler(.success((data, response)))
+                completion(.success((data, response)))
             } else {
-                completionHandler(.failure(UnexpectedValuesRepresentation()))
+                completion(.failure(UnexpectedValuesRepresentation()))
             }
         }.resume()
     }

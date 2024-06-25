@@ -24,8 +24,8 @@ public final class RemoteAnimeFeedLoader: AnimeFeedLoader {
         self.client = client
     }
         
-    public func load(page: Int = 1, completion: @escaping (Result) -> Void) {
-        client.get(from: url, page: page) { [weak self] result in
+    public func load(completion: @escaping (Result) -> Void) {
+        client.get(from: url) { [weak self] result in
             guard self != nil else { return }
             
             switch result {
