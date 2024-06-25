@@ -14,6 +14,7 @@
 		FA446F832BCD40D800E85C70 /* AnimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F822BCD40D800E85C70 /* AnimeItem.swift */; };
 		FA446F852BCD4BFC00E85C70 /* AnimeFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */; };
 		FA446F882BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */; };
+		FA964EF52C2B17D000810C04 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA964EF42C2B17D000810C04 /* URLSessionHTTPClient.swift */; };
 		FA9AAA582C1B40C900F02052 /* AnimeItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AAA572C1B40C900F02052 /* AnimeItemsMapper.swift */; };
 		FA9AAA5B2C1CCC6C00F02052 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AAA5A2C1CCC6C00F02052 /* URLSessionHTTPClientTests.swift */; };
 		FA9AAA5E2C29C7FC00F02052 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AAA5D2C29C7FC00F02052 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -54,6 +55,7 @@
 		FA446F822BCD40D800E85C70 /* AnimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeItem.swift; sourceTree = "<group>"; };
 		FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeFeedLoader.swift; sourceTree = "<group>"; };
 		FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAnimeFeedLoaderTests.swift; sourceTree = "<group>"; };
+		FA964EF42C2B17D000810C04 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		FA9AAA572C1B40C900F02052 /* AnimeItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeItemsMapper.swift; sourceTree = "<group>"; };
 		FA9AAA5A2C1CCC6C00F02052 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		FA9AAA5D2C29C7FC00F02052 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				FA30BAE42BCD855400FBF268 /* RemoteAnimeFeedLoader.swift */,
 				FA9AAA572C1B40C900F02052 /* AnimeItemsMapper.swift */,
 				FA30BAE62BCD856600FBF268 /* HTTPClient.swift */,
+				FA964EF42C2B17D000810C04 /* URLSessionHTTPClient.swift */,
 			);
 			path = AnimeFeedAPI;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9AAA582C1B40C900F02052 /* AnimeItemsMapper.swift in Sources */,
+				FA964EF52C2B17D000810C04 /* URLSessionHTTPClient.swift in Sources */,
 				FA9D9ACA2BE1621E00B3EF39 /* WEBPImages.swift in Sources */,
 				FA446F832BCD40D800E85C70 /* AnimeItem.swift in Sources */,
 				FA9D9AC82BE161E900B3EF39 /* JPGImages.swift in Sources */,
