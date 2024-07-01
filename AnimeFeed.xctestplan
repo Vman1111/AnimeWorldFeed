@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "3844F9CE-B843-4C95-BC70-BFB821D6A4DF",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AnimeFeed.xcodeproj",
+        "identifier" : "FA446F712BCD3EB900E85C70",
+        "name" : "AnimeFeedTests"
+      }
+    }
+  ],
+  "version" : 1
+}
