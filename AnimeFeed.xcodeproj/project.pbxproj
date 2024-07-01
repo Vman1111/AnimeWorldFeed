@@ -15,6 +15,8 @@
 		FA446F852BCD4BFC00E85C70 /* AnimeFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */; };
 		FA446F882BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */; };
 		FA964EF52C2B17D000810C04 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA964EF42C2B17D000810C04 /* URLSessionHTTPClient.swift */; };
+		FA964EFE2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA964EFD2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.swift */; };
+		FA964EFF2C32F82B00810C04 /* AnimeFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA446F6A2BCD3EB900E85C70 /* AnimeFeed.framework */; };
 		FA9AAA582C1B40C900F02052 /* AnimeItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AAA572C1B40C900F02052 /* AnimeItemsMapper.swift */; };
 		FA9AAA5B2C1CCC6C00F02052 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AAA5A2C1CCC6C00F02052 /* URLSessionHTTPClientTests.swift */; };
 		FA9AAA5E2C29C7FC00F02052 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AAA5D2C29C7FC00F02052 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -26,6 +28,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		FA446F742BCD3EB900E85C70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA446F612BCD3EB900E85C70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA446F692BCD3EB900E85C70;
+			remoteInfo = AnimeFeed;
+		};
+		FA964F002C32F82B00810C04 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA446F612BCD3EB900E85C70 /* Project object */;
 			proxyType = 1;
@@ -57,6 +66,9 @@
 		FA446F872BCD6D6700E85C70 /* RemoteAnimeFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAnimeFeedLoaderTests.swift; sourceTree = "<group>"; };
 		FA964EF42C2B17D000810C04 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		FA964EF62C2B19E200810C04 /* AnimeFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnimeFeed.xctestplan; sourceTree = "<group>"; };
+		FA964EFB2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA964EFD2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
+		FA964F052C32F85300810C04 /* AnimeFeedAPIEndToEndTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnimeFeedAPIEndToEndTests.xctestplan; sourceTree = "<group>"; };
 		FA9AAA572C1B40C900F02052 /* AnimeItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeItemsMapper.swift; sourceTree = "<group>"; };
 		FA9AAA5A2C1CCC6C00F02052 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		FA9AAA5D2C29C7FC00F02052 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
@@ -82,6 +94,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA964EF82C32F82B00810C04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA964EFF2C32F82B00810C04 /* AnimeFeed.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -99,9 +119,11 @@
 		FA446F602BCD3EB900E85C70 = {
 			isa = PBXGroup;
 			children = (
+				FA964F052C32F85300810C04 /* AnimeFeedAPIEndToEndTests.xctestplan */,
 				FA964EF62C2B19E200810C04 /* AnimeFeed.xctestplan */,
 				FA446F6C2BCD3EB900E85C70 /* AnimeFeed */,
 				FA446F762BCD3EB900E85C70 /* AnimeFeedTests */,
+				FA964EFC2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests */,
 				FA446F6B2BCD3EB900E85C70 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +133,7 @@
 			children = (
 				FA446F6A2BCD3EB900E85C70 /* AnimeFeed.framework */,
 				FA446F722BCD3EB900E85C70 /* AnimeFeedTests.xctest */,
+				FA964EFB2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +163,14 @@
 				FA446F842BCD4BFC00E85C70 /* AnimeFeedLoader.swift */,
 			);
 			path = "Anime Feed Feature";
+			sourceTree = "<group>";
+		};
+		FA964EFC2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA964EFD2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.swift */,
+			);
+			path = AnimeFeedAPIEndToEndTests;
 			sourceTree = "<group>";
 		};
 		FA9AAA592C1CAD7500F02052 /* AnimeFeedAPI */ = {
@@ -222,6 +253,24 @@
 			productReference = FA446F722BCD3EB900E85C70 /* AnimeFeedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FA964EFA2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA964F022C32F82B00810C04 /* Build configuration list for PBXNativeTarget "AnimeFeedAPIEndToEndTests" */;
+			buildPhases = (
+				FA964EF72C32F82B00810C04 /* Sources */,
+				FA964EF82C32F82B00810C04 /* Frameworks */,
+				FA964EF92C32F82B00810C04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA964F012C32F82B00810C04 /* PBXTargetDependency */,
+			);
+			name = AnimeFeedAPIEndToEndTests;
+			productName = AnimeFeedAPIEndToEndTests;
+			productReference = FA964EFB2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -229,7 +278,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					FA446F692BCD3EB900E85C70 = {
@@ -239,6 +288,9 @@
 					FA446F712BCD3EB900E85C70 = {
 						CreatedOnToolsVersion = 15.3;
 						LastSwiftMigration = 1530;
+					};
+					FA964EFA2C32F82B00810C04 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
@@ -257,12 +309,20 @@
 			targets = (
 				FA446F692BCD3EB900E85C70 /* AnimeFeed */,
 				FA446F712BCD3EB900E85C70 /* AnimeFeedTests */,
+				FA964EFA2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FA446F702BCD3EB900E85C70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA964EF92C32F82B00810C04 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -299,6 +359,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA964EF72C32F82B00810C04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA964EFE2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -306,6 +374,11 @@
 			isa = PBXTargetDependency;
 			target = FA446F692BCD3EB900E85C70 /* AnimeFeed */;
 			targetProxy = FA446F742BCD3EB900E85C70 /* PBXContainerItemProxy */;
+		};
+		FA964F012C32F82B00810C04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA446F692BCD3EB900E85C70 /* AnimeFeed */;
+			targetProxy = FA964F002C32F82B00810C04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -572,6 +645,38 @@
 			};
 			name = Release;
 		};
+		FA964F032C32F82B00810C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YK85C8KC5D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sapranavicius.vytautas.com.AnimeFeedAPIEndToEndTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FA964F042C32F82B00810C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YK85C8KC5D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sapranavicius.vytautas.com.AnimeFeedAPIEndToEndTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -598,6 +703,15 @@
 			buildConfigurations = (
 				FA446F802BCD3EB900E85C70 /* Debug */,
 				FA446F812BCD3EB900E85C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA964F022C32F82B00810C04 /* Build configuration list for PBXNativeTarget "AnimeFeedAPIEndToEndTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA964F032C32F82B00810C04 /* Debug */,
+				FA964F042C32F82B00810C04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
