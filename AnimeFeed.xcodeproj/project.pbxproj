@@ -76,6 +76,8 @@
 		FA9D9AC92BE1621E00B3EF39 /* WEBPImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WEBPImages.swift; sourceTree = "<group>"; };
 		FA9D9ACB2BE1629800B3EF39 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		FAAFA8E92C35DA29004FE67A /* AllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllTests.xctestplan; sourceTree = "<group>"; };
+		FAAFA8EA2C35DEBA004FE67A /* EndToEndTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EndToEndTests.xctestplan; sourceTree = SOURCE_ROOT; };
+		FAAFA8EB2C35DED2004FE67A /* EndToEndTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EndToEndTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		FA446F602BCD3EB900E85C70 = {
 			isa = PBXGroup;
 			children = (
+				FAAFA8EB2C35DED2004FE67A /* EndToEndTests.xctestplan */,
 				FAAFA8E92C35DA29004FE67A /* AllTests.xctestplan */,
 				FA964EF62C2B19E200810C04 /* AnimeFeed.xctestplan */,
 				FA446F6C2BCD3EB900E85C70 /* AnimeFeed */,
@@ -169,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				FA964EFD2C32F82B00810C04 /* AnimeFeedAPIEndToEndTests.swift */,
+				FAAFA8EA2C35DEBA004FE67A /* EndToEndTests.xctestplan */,
 			);
 			path = AnimeFeedAPIEndToEndTests;
 			sourceTree = "<group>";
