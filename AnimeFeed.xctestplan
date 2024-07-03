@@ -29,7 +29,6 @@
       }
     },
     {
-      "enabled" : false,
       "target" : {
         "containerPath" : "container:AnimeFeed.xcodeproj",
         "identifier" : "FA964EFA2C32F82B00810C04",
