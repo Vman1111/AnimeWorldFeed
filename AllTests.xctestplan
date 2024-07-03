@@ -1,8 +1,8 @@
 {
   "configurations" : [
     {
-      "id" : "3844F9CE-B843-4C95-BC70-BFB821D6A4DF",
-      "name" : "Test Scheme Action",
+      "id" : "4BDA2807-7151-4B6E-AA7F-24DDB6135559",
+      "name" : "Configuration 1",
       "options" : {
 
       }
@@ -29,7 +29,6 @@
       }
     },
     {
-      "enabled" : false,
       "target" : {
         "containerPath" : "container:AnimeFeed.xcodeproj",
         "identifier" : "FA964EFA2C32F82B00810C04",
