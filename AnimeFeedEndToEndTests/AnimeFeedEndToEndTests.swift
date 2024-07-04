@@ -12,7 +12,7 @@ class AnimeFeedAPIEndToEndTests: XCTestCase {
 
     func test_endToEndTestServerGetAnimeFeedResult_matchesFixedAccountData() {
         let url = URL(string: "https://api.jikan.moe/v4/anime")!
-        let client = URLSessionHTTPClient(session: URLSession.shared)
+        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         let loader = RemoteAnimeFeedLoader(url: url, client: client)
         
         let exp = expectation(description: "Wait for API to complete")

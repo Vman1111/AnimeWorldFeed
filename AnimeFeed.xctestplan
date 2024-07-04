@@ -28,13 +28,6 @@
         "identifier" : "FA446F712BCD3EB900E85C70",
         "name" : "AnimeFeedTests"
       }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:AnimeFeed.xcodeproj",
-        "identifier" : "FAB80EDE2C36C9CB00B2F4C9",
-        "name" : "AnimeFeedEndToEndTests"
-      }
     }
   ],
   "version" : 1
