@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>AnimeFeedEndToEndTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>FA964EFA2C32F82B00810C04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAB80EDE2C36C9CB00B2F4C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

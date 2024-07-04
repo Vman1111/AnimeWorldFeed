@@ -1,8 +1,8 @@
 //
-//  AnimeFeedAPIEndToEndTests.swift
-//  AnimeFeedAPIEndToEndTests
+//  AnimeFeedEndToEndTests.swift
+//  AnimeFeedEndToEndTests
 //
-//  Created by Vytautas Sapranavicius on 01/07/2024.
+//  Created by Vytautas Sapranavicius on 04/07/2024.
 //
 
 import XCTest
@@ -69,3 +69,4 @@ class AnimeFeedAPIEndToEndTests: XCTestCase {
         "https://myanimelist.net/anime/43/Koukaku_Kidoutai"
     ]
 }
+

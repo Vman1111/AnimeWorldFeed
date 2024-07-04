@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "3844F9CE-B843-4C95-BC70-BFB821D6A4DF",
+      "id" : "5A558E26-D1C7-4DDA-8E02-44498399C1D1",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -22,13 +22,6 @@
     "threadSanitizerEnabled" : true
   },
   "testTargets" : [
-    {
-      "target" : {
-        "containerPath" : "container:AnimeFeed.xcodeproj",
-        "identifier" : "FA446F712BCD3EB900E85C70",
-        "name" : "AnimeFeedTests"
-      }
-    },
     {
       "target" : {
         "containerPath" : "container:AnimeFeed.xcodeproj",
