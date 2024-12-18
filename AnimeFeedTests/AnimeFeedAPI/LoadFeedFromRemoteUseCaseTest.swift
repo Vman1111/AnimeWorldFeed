@@ -1,5 +1,5 @@
 //
-//  RemoteAnimeFeedLoaderTests.swift
+//  LoadFeedFromRemoteUseCaseTest.swift
 //  AnimeFeedTests
 //
 //  Created by Vytautas Sapranavicius on 15/04/2024.
@@ -8,7 +8,7 @@
 import XCTest
 import AnimeFeed
 
-final class RemoteAnimeFeedLoaderTests: XCTestCase {
+final class LoadFeedFromRemoteUseCaseTest: XCTestCase {
     
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
