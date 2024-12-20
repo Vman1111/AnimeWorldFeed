@@ -24,7 +24,7 @@
 		FA9D9ACC2BE1629800B3EF39 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D9ACB2BE1629800B3EF39 /* Pagination.swift */; };
 		FAB80EE22C36C9CB00B2F4C9 /* AnimeFeedEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB80EE12C36C9CB00B2F4C9 /* AnimeFeedEndToEndTests.swift */; };
 		FAB80EE32C36C9CB00B2F4C9 /* AnimeFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA446F6A2BCD3EB900E85C70 /* AnimeFeed.framework */; };
-		FAB80EF92C36DF3600B2F4C9 /* CacheAnimeFeedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB80EF82C36DF3600B2F4C9 /* CacheAnimeFeedUseCase.swift */; };
+		FAB80EF92C36DF3600B2F4C9 /* CacheAnimeFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB80EF82C36DF3600B2F4C9 /* CacheAnimeFeedUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 		FAB80EDF2C36C9CB00B2F4C9 /* AnimeFeedEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeFeedEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB80EE12C36C9CB00B2F4C9 /* AnimeFeedEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeFeedEndToEndTests.swift; sourceTree = "<group>"; };
 		FAB80EE92C36D04400B2F4C9 /* AnimeFeedEndToEndTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnimeFeedEndToEndTests.xctestplan; sourceTree = "<group>"; };
-		FAB80EF82C36DF3600B2F4C9 /* CacheAnimeFeedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAnimeFeedUseCase.swift; sourceTree = "<group>"; };
+		FAB80EF82C36DF3600B2F4C9 /* CacheAnimeFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAnimeFeedUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +209,7 @@
 		FAB80EEA2C36D6FA00B2F4C9 /* AnimeFeedCache */ = {
 			isa = PBXGroup;
 			children = (
-				FAB80EF82C36DF3600B2F4C9 /* CacheAnimeFeedUseCase.swift */,
+				FAB80EF82C36DF3600B2F4C9 /* CacheAnimeFeedUseCaseTests.swift */,
 			);
 			path = AnimeFeedCache;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA446F882BCD6D6700E85C70 /* LoadFeedFromRemoteUseCaseTest.swift in Sources */,
-				FAB80EF92C36DF3600B2F4C9 /* CacheAnimeFeedUseCase.swift in Sources */,
+				FAB80EF92C36DF3600B2F4C9 /* CacheAnimeFeedUseCaseTests.swift in Sources */,
 				FA9AAA5B2C1CCC6C00F02052 /* URLSessionHTTPClientTests.swift in Sources */,
 				FA9AAA5E2C29C7FC00F02052 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
