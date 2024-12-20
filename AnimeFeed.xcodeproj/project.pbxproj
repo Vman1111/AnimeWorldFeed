@@ -153,6 +153,7 @@
 		FA446F762BCD3EB900E85C70 /* AnimeFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA9AAA5C2C29C7C600F02052 /* Helpers */,
 				FAB80EEA2C36D6FA00B2F4C9 /* AnimeFeedCache */,
 				FA9AAA592C1CAD7500F02052 /* AnimeFeedAPI */,
 			);
@@ -171,7 +172,6 @@
 		FA9AAA592C1CAD7500F02052 /* AnimeFeedAPI */ = {
 			isa = PBXGroup;
 			children = (
-				FA9AAA5C2C29C7C600F02052 /* Helpers */,
 				FA446F872BCD6D6700E85C70 /* LoadFeedFromRemoteUseCaseTest.swift */,
 				FA9AAA5A2C1CCC6C00F02052 /* URLSessionHTTPClientTests.swift */,
 			);
