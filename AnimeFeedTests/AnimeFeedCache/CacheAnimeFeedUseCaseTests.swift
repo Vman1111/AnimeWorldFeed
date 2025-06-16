@@ -33,7 +33,7 @@ class FeedStore {
     typealias InsertionCompletion = ((any Error)?) -> Void
     
     enum ReceivedMessage: Equatable {
-        case deleteCaachedFeed
+        case deleteCachedFeed
         case insert([AnimeItem], Date)
     }
     
@@ -44,7 +44,7 @@ class FeedStore {
     
     func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         deletionCompletions.append(completion)
-        receivedMessages.append(.deleteCaachedFeed)
+        receivedMessages.append(.deleteCachedFeed)
     }
     
     func completeDeletion(with error: any Error, at index: Int = 0) {
@@ -83,7 +83,7 @@ final class CacheAnimeFeedUseCaseTests: XCTestCase {
         
         sut.save(items) { _ in }
         
-        XCTAssertEqual(store.receivedMessages, [.deleteCaachedFeed])
+        XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
     }
     
     func test_save_doesNotRequestCacheInsertionOnDeletionError() {
@@ -94,7 +94,7 @@ final class CacheAnimeFeedUseCaseTests: XCTestCase {
         sut.save(items) { _ in }
         store.completeDeletion(with: deletionError)
         
-        XCTAssertEqual(store.receivedMessages, [.deleteCaachedFeed])
+        XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
     }
     
     func test_save_requestsNewCacheInsertionWithTimestampOnSuccessfulDeletion() {
@@ -105,7 +105,7 @@ final class CacheAnimeFeedUseCaseTests: XCTestCase {
         sut.save(items) { _ in }
         store.completeDeletionSuccessfully()
         
-        XCTAssertEqual(store.receivedMessages, [.deleteCaachedFeed, .insert(items, timestamp)])
+        XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed, .insert(items, timestamp)])
     }
     
     func test_save_failsOnDeletionError() {
