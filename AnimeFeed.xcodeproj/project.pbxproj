@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -80,6 +80,10 @@
 		FAB80EF82C36DF3600B2F4C9 /* CacheAnimeFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAnimeFeedUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		7B62D09B2E006DDC0096279B /* Anime Feed Cache */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Anime Feed Cache"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		FA446F672BCD3EB900E85C70 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				FA446F6D2BCD3EB900E85C70 /* AnimeFeed.h */,
+				7B62D09B2E006DDC0096279B /* Anime Feed Cache */,
 				FA446F862BCD53DF00E85C70 /* Anime Feed Feature */,
 				FA30BAE32BCD853300FBF268 /* AnimeFeedAPI */,
 			);
@@ -240,6 +245,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7B62D09B2E006DDC0096279B /* Anime Feed Cache */,
 			);
 			name = AnimeFeed;
 			productName = AnimeFeed;
